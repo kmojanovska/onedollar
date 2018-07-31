@@ -1,0 +1,68 @@
+<div class="container">
+
+  <form (submit)="onSubmitFirst()" *ngIf="phoneForm" style="margin-left: 20%;">
+    <h1>Become a potential winneer:</h1>
+    <div>
+      <label for="email">Phone</label>
+      <input type="text" class="input-group input-lg" id="phone" required [(ngModel)]="phone" name="phone">
+      <div *ngIf="error != null">
+        <i class="text-danger">{{this.error}}</i>
+      </div>
+    </div>
+    <!--<div>
+      <label for="author">Author</label>
+      <input type="text" class="form-control" id="author" required [(ngModel)]="model.author" name="author">
+    </div>
+    <div>
+      <label for="url">URL</label>
+      <input type="text" class="form-control" id="url" required [(ngModel)]="model.url" name="url">
+    </div>-->
+    <br/>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+  <form (submit)="onSubmit()" *ngIf="emailForm" style="margin-left: 20%;">
+    <h1>Become a potential winneer:</h1>
+    <div>
+      <label for="email">Email</label>
+      <input type="text" class="input-group input-lg" id="email" required [(ngModel)]="email" name="email">
+      <div *ngIf="error != null">
+        <i class="text-danger">{{this.error}}</i>
+      </div>
+    </div>
+    <!--<div>
+      <label for="author">Author</label>
+      <input type="text" class="form-control" id="author" required [(ngModel)]="model.author" name="author">
+    </div>
+    <div>
+      <label for="url">URL</label>
+      <input type="text" class="form-control" id="url" required [(ngModel)]="model.url" name="url">
+    </div>-->
+    <br/>
+    <button class="btn btn-success" type="submit">Submit</button>
+  </form>
+  <form *ngIf="paymentForm" (submit)="chargeCreditCard()" style="margin-left: 20%;">
+    <h1>Would you just please pay ONE DOLLAR!</h1>
+    <label for="cardNumber">Card number</label>
+    <input type="text" class="input-group input-lg" id="cardNumber" name="cardNumber">
+    <label for="expMonth">Expiration Month</label>
+    <input type="text" class="input-group input-lg" id="expMonth" name="expMonth">
+    <label for="expYear">Expiration Year</label>
+    <input type="text" class="input-group input-lg" id="expYear" name="expYear">
+    <label for="cvc">CVC</label>
+    <input type="text" class="input-group input-lg" id="cvc" name="cvc">
+    <br/>
+    <button class="btn btn-success" >Submit</button>
+  </form>
+
+  <div *ngIf="userForm" style="margin-left: 20%;" class="jumbotron">
+    <h1 class="display-4"> Wellclome {{email}}</h1>
+    <p class="lead"> You are in room <span class="text-danger big-text">{{room}}</span></p>
+    <p class="lead"> This room is open since <span class="text-danger">{{generationTime}}</span></p>
+    <p class="lead"> There are {{noPeople}} people in this room </p>
+    <p class="lead"> <span class="text-danger big-text">{{noPayingCustomers}}</span> of them are pottential winners</p>
+    <hr class="my-4">
+    <h5 class="lead"> Good Luck!! </h5>
+
+  </div>
+</div>
+
